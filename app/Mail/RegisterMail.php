@@ -28,8 +28,11 @@ class RegisterMail extends Mailable
      */
     public function build()
     {
-        $path = storage_path("app/resumes/cv.pdf");
+        $path = storage_path("app/resumes/novel.pdf");
 
-        return $this->markdown('emails.welcome');
+        return $this->markdown('emails.welcome')->attach($path,[
+            'as' => 'novel.pdf',
+            'mime' => 'application/pdf',
+        ]);
     }
 }
