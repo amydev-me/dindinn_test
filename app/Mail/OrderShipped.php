@@ -7,7 +7,7 @@ use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
-class RegisterMail extends Mailable
+class OrderShipped extends Mailable
 {
     use Queueable, SerializesModels;
 
@@ -28,8 +28,6 @@ class RegisterMail extends Mailable
      */
     public function build()
     {
-        $path = storage_path("app/resumes/cv.pdf");
-
-        return $this->markdown('emails.welcome');
+        return $this->markdown('emails.orders.shipped');
     }
 }
