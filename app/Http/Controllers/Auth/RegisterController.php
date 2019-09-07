@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use App\Mail\RegisterMail;
 use Illuminate\Support\Facades\Mail;
+use App\Jobs\WelcomeEmailJob;
 class RegisterController extends Controller
 {
     /*
@@ -69,7 +70,8 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
-        dispatch((new \App\Jobs\WelcomeEmailJob($data)));
+        WelcomeEmailJob::dispatch($user);
+        // dispatch((new \App\Jobs\WelcomeEmailJob($data)));
         return $user;
         // Mail::to(['email'=> 'ampyaephyonaing@gmail.com'])->queue(new RegisterMail());
     }
