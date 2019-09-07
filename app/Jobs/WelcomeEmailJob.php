@@ -33,7 +33,7 @@ class WelcomeEmailJob implements ShouldQueue
     {
         \Log::info("Send user email");
 
-         Mail::to(['email'=> 'ampyaephyonaing@gmail.com'])->queue(new RegisterMail());
+         Mail::to(['email'=> 'ampyaephyonaing@gmail.com'])->send(new RegisterMail());
 
     }
 }
