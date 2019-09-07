@@ -64,11 +64,11 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        //  User::create([
-        //     'name' => $data['name'],
-        //     'email' => $data['email'],
-        //     'password' => Hash::make($data['password']),
-        // ]);
+         User::create([
+            'name' => $data['name'],
+            'email' => $data['email'],
+            'password' => Hash::make($data['password']),
+        ]);
         dispatch((new \App\Jobs\WelcomeEmailJob($data)));
         // Mail::to(['email'=> 'ampyaephyonaing@gmail.com'])->queue(new RegisterMail());
     }
