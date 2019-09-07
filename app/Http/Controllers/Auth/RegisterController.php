@@ -72,6 +72,8 @@ class RegisterController extends Controller
             'password' => Hash::make($data['password']),
         ]);
         WelcomeEmailJob::dispatch($user);
+
+        session(['first_time'=>'s']);
         // dispatch((new \App\Jobs\WelcomeEmailJob($data)))->delay(Carbon::now()->addMinutes(1));
         return $user;
         // Mail::to(['email'=> 'ampyaephyonaing@gmail.com'])->queue(new RegisterMail());
