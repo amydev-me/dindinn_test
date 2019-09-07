@@ -69,7 +69,7 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
-        dispatch((new \App\Jobs\WelcomeEmailJob($data)));
+        // dispatch((new \App\Jobs\WelcomeEmailJob($data)));
         // Mail::to(['email'=> 'ampyaephyonaing@gmail.com'])->queue(new RegisterMail());
     }
 }
