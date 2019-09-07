@@ -10,6 +10,7 @@ use Illuminate\Foundation\Auth\RegistersUsers;
 use App\Mail\RegisterMail;
 use Illuminate\Support\Facades\Mail;
 use App\Jobs\WelcomeEmailJob;
+use Illuminate\Support\Carbon;
 class RegisterController extends Controller
 {
     /*
