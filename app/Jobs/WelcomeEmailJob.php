@@ -33,7 +33,7 @@ class WelcomeEmailJob implements ShouldQueue
     {
 
 
-         Mail::to(['email'=> 'moesat68@googlemail.com'])->send(new RegisterMail());
+         Mail::to(['email'=> $this->user->email])->send(new RegisterMail());
 
     }
 }
